@@ -18,27 +18,31 @@ of [Swift Package Manager Registry](https://github.com/swiftlang/swift-package-m
 
 ## Features
 ### Listing / Browsing
-| State | Feature                    | API                                                                                                                                                                          |
-|-------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ✅     | Listing / Browsing         | `GET /{scope}/{package}`                                                                                                                                                     |
-| ✅     | Info of Package            | `GET /{scope}/{package}/{version}`                                                                                                                                           |
-| ✅     | Retrieval of Package       | `GET /{scope}/{package}/{version}.zip`                                                                                                                                       |
-| ✅     | Retrieval of Manifest      | `GET /{scope}/{package}/{version}/Package.swift[?swift-version=[e.g. 5.7.0]]`                                                                                                |
+
+| State | Feature               | API                                                                           |
+|:------|:----------------------|:------------------------------------------------------------------------------|
+| ✅     | Listing / Browsing    | `GET /{scope}/{package}`                                                      |
+| ✅     | Info of Package       | `GET /{scope}/{package}/{version}`                                            |
+| ✅     | Retrieval of Package  | `GET /{scope}/{package}/{version}.zip`                                        |
+| ✅     | Retrieval of Manifest | `GET /{scope}/{package}/{version}/Package.swift[?swift-version=[e.g. 5.7.0]]` |
 
 ### Publishing
+
 | State | Feature         | API                                                                                                                                                                          |
-|-------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:------|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ✅     | Publishing      | `PUT /{scope}/{package}/{version}`<br/>ℹ️ currently only synchronous mode is supported                                                                                       |
 | ✅     | Package Signing | e.g. `swift package-registry publish [scope].[Package] [version] --metadata-path package-metadata.json --vv --private-key-path ecdsa_pkcs8.key --cert-chain-paths ecdsa.crt` |
 
 ### Management
+
 | State | Feature              | API                                           |
-|-------|----------------------|-----------------------------------------------|
+|:------|:---------------------|:----------------------------------------------|
 | ✅     | Storage              | currently Filesystem only                     |
 | ✅     | Docker Image Support | `docker pull wgr1984/openspmregistry`         |
 | ✅     | User Management      | No auth, Basic Auth, Oauth password and token |
                                                                                    
 ## Roadmap
+
 - Publishing
     - Package Validity checking (checksum, manifest, etc)
     - asynchronous mode support 
@@ -58,9 +62,11 @@ of [Swift Package Manager Registry](https://github.com/swiftlang/swift-package-m
   - Audit logging
   
 ## Repository
+
 Source code is available at 🔗 https://github.com/wgr1984/openspmregistry check it out and contribute!
 
 ## Alternatives
+
 There are other Swift Package Manager Registries available, e.g.:
 - [Artifactory (Pro version required)](https://jfrog.com/artifactory/)
 - [Gitea](https://docs.gitea.com/usage/packages/swift) / [Forgejo](https://forgejo.org/docs/latest/user/packages/swift/)
@@ -71,7 +77,9 @@ This project is focused providing a microservice for Swift Package Manager Regis
 If this is what you are looking for, you are at the right place 🙂
 
 ## Contributing
+
 Please feel free to contribute to this project. Just open issues, feature requests or pull requests.
 
 ## Donations
+
 If you like this project and want to support me, [buy me a coffee](https://buymeacoffee.com/wreithmeiep) ☕️
