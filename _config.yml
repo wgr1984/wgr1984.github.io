@@ -12,7 +12,4 @@ defaults:
       layout: "default"
 
 # Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
-color_scheme: nil
-
-aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+color_scheme: "dark"
