@@ -2,15 +2,17 @@
 title: Open SPM Registry
 nav_order: 2
 ---
+<img src="../../assets/images/openspmregistry_icon.svg" width="200" height="200">
 
 # About
 Simple, fast and as feature complete as possible version
 of [Swift Package Manager Registry](https://github.com/swiftlang/swift-package-manager/blob/main/Documentation/PackageRegistry/Registry.md){:target="_blank"}.
 (at least in terms of API)
+
 {: .fs-6 .fw-300 }
 
 ## Usage
-- Getting started: [Click here]()
+- Getting started: [Click here]({% link docs/openspmregistry/gettingstarted.md %})
 - Installation: [Click here]()
 - Full API Documentation: [Click here]()
 - Docker Image: [Click here]()
