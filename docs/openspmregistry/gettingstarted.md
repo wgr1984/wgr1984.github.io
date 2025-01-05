@@ -13,11 +13,11 @@ In order to run the server we can either use the docker image or run it from sou
 For sake of simplicity we will use the docker image here.
 
 First we need to pull the image
-```
+```shell
 docker pull wgr1984/openspmregistry:latest
 ```
 then we can run it
-```
+```shell
 docker run -p 8080:8080 -v ./:/data -i -t wgr1984/openspmregistry:latest
 ```
 This will start the server on port 8080 and use the current directory as storage.
@@ -32,7 +32,7 @@ Furthermore, we need to setup the registry in the swift package manager.
 ### Setup Registry
 Ensure SPM registry is known and setup,
 be aware `swift package-registry` as for now (Apple may change that in the future) accepts TlS/SSL se ured connections only
-```
+```shell
 swift package-registry set https://localhost:8080
 ```
 ⚠️ on local setup (or any self-signed) we need to make sure ssl cert is set too trusted on system level:
@@ -40,22 +40,22 @@ swift package-registry set https://localhost:8080
 
 ### Create New Project to Publish
 Simply create a new swift package library that we can publish.
-```
-> mkdir spm_test_lib
-> cd spm_test_lib
-> swift package init --type=library 
+```shell
+mkdir spm_test_lib
+cd spm_test_lib
+swift package init --type=library 
 ```
 publish it to the registry
-```
-> swift package-registry publish test.TestLib 1.0.0
+```shell
+swift package-registry publish test.TestLib 1.0.0
 ```
 
 ### Create New Project to Retrieve
 Create a new swift package executable that uses the published package.
-```
-> mkdir spm_test
-> cd spm_test
-> swift package init --type=executable
+```shell
+mkdir spm_test
+cd spm_test
+swift package init --type=executable
 ```
 add the dependency to the `Package.swift`
 ```swift
@@ -89,8 +89,11 @@ let package = Package(
 )
 ```
 try to resolve the dependency
+```shell
+swift package resolve
 ```
-> swift package resolve     
+if everything is setup correctly we should see something like this
+```
 Computing version for test.TestLib
 Computed test.TestLib at 1.0.0 (0.50s)
 Fetching test.TestLib from cache
