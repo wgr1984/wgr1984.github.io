@@ -8,8 +8,8 @@ nav_order: 1
 _Create a self-signed certificate via Keychain_
 
 ## Create a Certificate
-1. Open Keychain
-2. Create new CA certificate
+1. Open keychain
+2. Create new certificate
 
 ![Create Cert 1](../../assets/images/spm_cert_create_1.jpg)
 2a. Overright the default settings
