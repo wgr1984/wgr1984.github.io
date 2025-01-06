@@ -41,3 +41,4 @@ Please feel free to contribute to this project. Just open issues, feature reques
 ## Donations
 
 If you like this project and want to support me, [buy me a coffee](https://buymeacoffee.com/wreithmeiep){:target="_blank"} ☕️
+
