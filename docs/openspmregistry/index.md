@@ -15,7 +15,7 @@ of [Swift Package Manager Registry](https://github.com/swiftlang/swift-package-m
 
 - Getting started: [Click here]({% link docs/openspmregistry/gettingstarted.md %})
 - Installation: [Click here]({% link docs/openspmregistry/installation.md %})
-- Documentation: [Click here]({% link docs/openspmregistry/documentation.md %})
+- Documentation: [Click here]({% link docs/openspmregistry/documention.md %})
 - Docker Image: [Click here](https://hub.docker.com/r/wgr1984/openspmregistry){:target="_blank"}
 - Source Code: [Click here](https://github.com/wgr1984/openspmregistry){:target="_blank"}
   
