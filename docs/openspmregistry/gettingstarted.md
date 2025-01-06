@@ -35,6 +35,7 @@ be aware `swift package-registry` as for now (Apple may change that in the futur
 ```shell
 swift package-registry set https://localhost:8080
 ```
+{: .highlight }
 ⚠️ on local setup (or any self-signed) we need to make sure ssl cert is set too trusted on system level:
 ![](../../assets/images/keychain_trust.jpg)
 

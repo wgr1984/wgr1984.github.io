@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 # Sign & create via Keychain_
-_Create a self-signed certificate via Keychain_
+Create a self-signed certificate via Keychain
 
 ### Create a Certificate
 1. Open keychain
