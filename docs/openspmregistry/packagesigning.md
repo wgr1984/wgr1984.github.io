@@ -42,7 +42,7 @@ The metadata file is a json file that contains the information about the package
 save this file as `package-metadata.json`
 
 ### 2. Create certs, sign & publish package
-- [Create via Keychain](packagesigningkeychain.md)
+- [Create via Keychain](packagesigningkeychain.md) (recommended)
 - [Create manually via commandline](packagesigningmanual.md)
 
 ### 3. Trusted store configuration
