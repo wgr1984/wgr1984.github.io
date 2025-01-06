@@ -5,14 +5,16 @@ nav_order: 2
 ---
 
 # Sign & create cert manually
-Manually create a self-signed certificate via commandline
+Manually create a self-signed certificate via commandline.
+{: .warning }
+Might be outdated or not working on your system. Recommend to use [Keychain](packagesigningkeychain.md) instead.
 
-#### Create a CA
+### Create a CA
 ```shell
 openssl genpkey -algorithm RSA  -outform der -out ca.key -pkeyopt rsa_keygen_bits:2048
 openssl req -x509 -new -nodes -key ca.key -sha256 -days 365  -outform der -out ca.crt -subj "/C=US/ST=State/L=City/O=Organization/OU=OrgUnit/CN=RootCA"
 ```
-#### Create a certificate
+### Create a certificate
 ```shell
 openssl ecparam -genkey -name prime256v1  -outform der -out ecdsa.key
 openssl pkcs8 -topk8 -inform DER -outform PEM -in ecdsa.key -out ecdsa_temp.pem -nocrypt
@@ -33,33 +35,11 @@ extendedKeyUsage = codeSigning" > code_signing_ext.cnf
 
 openssl x509 -req -in ecdsa.csr -CA ca.crt -CAkey ca.key -CAcreateserial -outform der -out ecdsa.crt -days 365 -sha256 -extfile code_signing_ext.cnf -extensions v3_code_sign 
 ```
-#### Add CA to trusted root
+### Add CA to trusted root
 ```
 cp ca.crt ~/.swiftpm/security/trusted-root-certs/ca.cer
 ```
-##### Trusted store configuration
-Add the following to [(Security Configuration)](https://github.com/swiftlang/swift-package-manager/blob/main/Documentation/PackageRegistry/PackageRegistryUsage.md#security-configuration){:target="_blank"}
-in ```~/.swiftpm/configuration/registries.json``` 
-```json
-{
-    "security": {
-    "default": {
-      "signing": {
-        "onUnsigned": "error",
-        "onUntrustedCertificate": "error",
-        "trustedRootCertificatesPath": "/Users/[user]/.swiftpm/security/trusted-root-certs/",
-        "includeDefaultTrustedRootCertificates": true,
-        "validationChecks": {
-          "certificateExpiration": "disabled",
-          "certificateRevocation": "disabled"
-        }
-      }
-    }
-  },
-  ...
-}
-```
-#### publish with signing
+### publish with signing
 ```shell
 swift package-registry publish [scope].[Package] [version] \
       --metadata-path package-metadata.json \
