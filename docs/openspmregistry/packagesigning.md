@@ -45,3 +45,26 @@ save this file as `package-metadata.json`
 - [Create via Keychain](packagesigningkeychain.md)
 - [Create manually via commandline](packagesigningmanual.md)
 
+### 3. Trusted store configuration
+Add the following to [(Security Configuration)](https://github.com/swiftlang/swift-package-manager/blob/main/Documentation/PackageRegistry/PackageRegistryUsage.md#security-configuration){:target="_blank"}
+in ```~/.swiftpm/configuration/registries.json```
+```json
+{
+    "security": {
+    "default": {
+      "signing": {
+        "onUnsigned": "error",
+        "onUntrustedCertificate": "error",
+        "trustedRootCertificatesPath": "/Users/[user]/.swiftpm/security/trusted-root-certs/",
+        "includeDefaultTrustedRootCertificates": true,
+        "validationChecks": {
+          "certificateExpiration": "disabled",
+          "certificateRevocation": "disabled"
+        }
+      }
+    }
+  },
+  ...
+}
+```
+This will ensure the signing is checked and the certificate is trusted by the client (xcode and/or swift-package).
